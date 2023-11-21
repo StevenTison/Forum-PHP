@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(/img/Desktop\ -\ 2.svg);
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+header {
+    align-self: flex-end;
+    color: #fff;
+    background: #34495E;
+    opacity: 0.9;
+    padding: 1vh 2vw 1vh 8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 0 0 0 30px;
+}
+
+header p {
+    padding: 3px 0;
+    line-height: 1.15em;
+}
+
+.navBar {
+    opacity: 0.9;
+    display: flex;
+    z-index: 1;
+    position: absolute;
+    top: 350px;
+
+
+    right: -265px;
+}
+
+.right {
+    right: 0px;
+}
+
+.navAff {
+    width: 30px;
+    background-color: #34495E;
+    border-radius: 30px 0 0 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5em;
+}
+
+.navAff img {
+    width: 100%;
+    height: 40%;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #3276B1;
+    padding: 1em;
+}
+
+.nav a {
+    margin: 0.5em 0;
+    padding: 1em;
+    border-left: 2px solid #34495E;
+    border-right: 2px solid #34495E;
+    border-radius: 10px;
+    border-top: 1px solid #34495E;
+    border-bottom: 1px solid #34495E;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    background-color: #34495E;
+    cursor: pointer;
+    border-color: #fff;
+}
+
+table {
+    width: 75vw;
+    margin: 5% 5%;
+    background-color: #34495E;
+    opacity: 0.9;
+    color: #fff;
+}
+
+th {
+    text-align: center;
+    padding: 1.5em;
+    border: 2px solid #3276B1;
+}
+
+td {
+    text-align: center;
+    padding: 1.5em;
+    border: 2px solid #3276B1;
+}
+
+a {
+    color: #fff;
+}
+
+form {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #34495E;
+    padding: 1.5em;
+    border-radius: 30px;
+    opacity: 0.9;
+}
+
+form label {
+    color: #fff;
+}
+
+form input {
+    width: 90%;
+    height: 2vh;
+    opacity: 0.9;
+    border: 2px solid #3276B1;
+    background-color: #34495E;
+    margin: 0.5em 0 1.5em 0;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 30px;
+    padding: 0.5em 1em;
+}
+
+form input:focus {
+    outline: none;
+}
+
+form textarea {
+    width: 90%;
+    height: 10vh;
+    opacity: 0.9;
+    border: 2px solid #3276B1;
+    background-color: #34495E;
+    color: #fff;
+    font-size: 16px;
+    margin: 0.5em 0 1.5em 0;
+    border-radius: 30px;
+    padding: 0.5em 1em;
+}
+
+form textarea:focus {
+    outline: none;
+}
+
+.btn {
+    height: auto;
+    width: auto;
+    margin: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+    table tbody tr td:nth-child(2) {
+        word-break: break-all;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+
+    form {
+        font-size: 14px;
+    }
+}

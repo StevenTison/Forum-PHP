@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(/img/blueprint-6944719_1920\ 1.svg);
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    align-self: flex-end;
+    color: #fff;
+    background: #34495E;
+    opacity: 0.9;
+    padding: 1vh 2vw 1vh 8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 0 0 0 30px;
+}
+
+header p {
+    padding: 3px 0;
+    line-height: 1.15em;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    margin: 10% 5%;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    border-radius: 20px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    background-color: #34495E;
+    color: #fff;
+    opacity: 0.9;
+    margin: 0 10px;
+    min-height: 20vh;
+    justify-content: space-between;
+}
+
+article h2 {
+    text-align: center;
+}
+
+article p {
+    line-height: 1.25em;
+}
+
+article input {
+    font-weight: 600;
+    justify-self: flex-end;
+    align-self: flex-end;
+    width: 25%;
+    background: #3276B1;
+    color: #34495E;
+    text-transform: uppercase;
+    border: solid 2px #34495E;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+    opacity: 1;
+}
+
+article input:hover {
+    border: solid 2px #3276B1;
+    background: #f0f0f0;
+    color: #000;
+}
+
+@media only screen and (max-width: 1439px) {
+    main {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 5% 5%;
+    }
+
+    article {
+        margin: 16px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    header {
+        font-size: 14px;
+    }
+
+    main {
+        margin-bottom: 0;
+    }
+
+    article {
+        font-size: 12px;
+        width: 325px;
+    }
+
+    article:last-child {
+        margin-bottom: 0;
+    }
+
+    article input {
+        font-size: 12px;
+    }
+}
