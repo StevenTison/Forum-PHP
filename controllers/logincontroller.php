@@ -1,7 +1,7 @@
 <?php
 
 
-// On configure et se connecte à la base de données
+// On configure la base de données
 $serveur = "localhost";
 $user = "root";
 $password = "";
@@ -18,6 +18,7 @@ function valid_donnees($donnees)
     return $donnees;
 }
 
+// Vérifie que les champs ne soient pas vides
 if (
     !empty($email)
     && !empty($mdp)
@@ -50,7 +51,10 @@ if (
                 $res = $req->fetchAll();
 
                 if ($res) {
-                    echo "Connexion réussie.";
+                    require_once "../includes/session_handler.php";
+                    $session = new Session();
+                    header("Location:../views/forum.php");
+                    require_once("../includes/header.php");
                 } else {
                     echo "Email ou mot de passe incorrect.";
                 }

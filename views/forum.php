@@ -1,5 +1,9 @@
 <?php
-require_once "../includes/head.php"
+require_once "../includes/head.php";
+require_once "../includes/session_handler.php";
+
+
+$session = new Session();
 ?>
 
 <head>
