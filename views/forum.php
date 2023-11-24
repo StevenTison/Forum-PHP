@@ -1,9 +1,9 @@
 <?php
 require_once "../includes/head.php";
-require_once "../includes/session_handler.php";
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
-
-$session = new Session();
 ?>
 
 <head>
@@ -14,10 +14,41 @@ $session = new Session();
 <body>
 
     <header>
-        <p class="bienvenue">Bienvenue <span class="nom"></span> <span class="prenom"></span>.</p>
-        <p class="dateCo">Nous sommes le <span class="jourSem"></span> <span class="dateDay"></span> <span
-                class="dateMonth"></span> <span class="dateYear"></span>.</p>
-        <p class="heureCo">Vous vous êtes connecté à <span class="heure"></span>h<span class="minute"></span>.</p>
+        <p class="bienvenue">Bienvenue
+            <span class="nom">
+                <?php echo $_SESSION['nom'] ?>
+            </span>
+            <span class="prenom">
+                <?php echo $_SESSION['prenom'] ?>
+            </span>.
+        </p>
+        <p class="dateCo">Nous sommes le <span>
+                <?php echo $_SESSION['date'] ?>
+            </span>.</p>
+        <p class="heureCo">Vous vous êtes connecté à
+            <span class="heure">
+                <?php echo $_SESSION['heure'] ?>
+            </span>.
+        </p>
+        <form method="post">
+            <button type="submit" name="account" class="account">
+                <?php
+                echo "Votre compte";
+                if (isset($_POST['account'])) {
+                    header('Location:../views/account.php');
+                }
+                ?>
+            </button>
+            <button type="submit" name="dc" class="dc">
+                <?php
+                echo "Déconnexion";
+                if (isset($_POST['dc'])) {
+                    session_destroy();
+                    header('Location:../index.php');
+                }
+                ?>
+            </button>
+        </form>
     </header>
 
     <main>
@@ -46,7 +77,7 @@ $session = new Session();
 
     </main>
 
-    <script src="/js/forum.js"></script>
+    <script src="../js/forum.js"></script>
 
 </body>
 

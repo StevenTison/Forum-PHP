@@ -64,13 +64,13 @@ require_once "includes/head.php";
 
             <div class="form-field">
                 <label for="email">Email:</label>
-                <input type="text" name="emailLog" id="emailLog" autocomplete="off">
+                <input type="text" name="emailLog" id="emailLog">
                 <small></small>
             </div>
 
             <div class="form-field">
                 <label for="password">Mot de passe :</label>
-                <input type="password" name="passwordLog" id="passwordLog" autocomplete="off">
+                <input type="password" name="passwordLog" id="passwordLog">
                 <small></small>
             </div>
 

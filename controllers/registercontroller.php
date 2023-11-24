@@ -67,10 +67,7 @@ if ($user) {
         } catch (PDOException $e) {
             echo "Erreur : " . $e->getMessage();
         }
-
-    } else {
+        header("Location:../index.php");
     }
-
 }
-
 ?>

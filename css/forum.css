@@ -30,6 +30,19 @@ header p {
     line-height: 1.15em;
 }
 
+.dc {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #34495E;
+    border: none;
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.dc:hover {
+    color: red;
+}
+
 main {
     display: flex;
     justify-content: space-between;

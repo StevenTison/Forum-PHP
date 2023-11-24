@@ -1,6 +1,4 @@
 <?php
-
-
 // On configure la base de données
 $serveur = "localhost";
 $user = "root";
@@ -42,32 +40,16 @@ if (
             $result = $req->fetch();
 
             if ($result && password_verify($mdp, $result['password'])) {
-
-                // On prépare la requête SQL pour récupérer l'utilisateur
-                $req = $con->prepare("SELECT * FROM utilisateur WHERE email = ?");
-                $req->execute([$email]);
-
-                // On récupère le résultat de la requête
-                $res = $req->fetchAll();
-
-                if ($res) {
-                    require_once "../includes/session_handler.php";
-                    $session = new Session();
-                    header("Location:../views/forum.php");
-                    require_once("../includes/header.php");
-                } else {
-                    echo "Email ou mot de passe incorrect.";
-                }
+                require_once "../includes/session.php";
+                header("Location:../views/forum.php");
             } else {
-                echo "Email ou mot de passe incorrect.";
+                header("Location:../index.php");
             }
         }
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
     }
-
 } else {
     header("Location:../index.php");
 }
-
 ?>
