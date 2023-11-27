@@ -1,5 +1,8 @@
 <?php
 
+// On récupère les données de la session pour assigné l'id de l'utilisateur qui crée le sujet
+require_once "session.php";
+
 // On configure la base de données
 $serveur = "localhost";
 $user = "root";
@@ -30,11 +33,15 @@ if (!empty($title) && !empty($message)) {
         $date = new DateTime("now", new DateTimeZone("Europe/Paris"));
         $dateString = $date->format("d/m/Y - H:i");
 
+        // On récupère l'id de l'utilisateur qui envoie le message via la session
+        $id = $_SESSION['idUser'];
+
         // On insère les données dans la base de données
-        $req = $con->prepare('INSERT INTO sujet(nom_sujet, message_sujet, date_sujet) VALUES(:nom, :message, :date)');
+        $req = $con->prepare('INSERT INTO sujet(nom_sujet, message_sujet, date_sujet, id_utilisateur) VALUES(:nom, :message, :date, :id)');
         $req->bindParam(':nom', $title, PDO::PARAM_STR);
         $req->bindParam(':message', $message, PDO::PARAM_STR);
         $req->bindParam(':date', $dateString, PDO::PARAM_STR);
+        $req->bindParam(':id', $id, PDO::PARAM_STR);
         $req->execute();
 
     } catch (Exception $e) {
