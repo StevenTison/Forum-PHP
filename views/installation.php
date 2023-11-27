@@ -1,5 +1,8 @@
 <?php
-require_once "../includes/head.php"
+require_once "../includes/head.php";
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 ?>
 
 <head>
@@ -10,10 +13,41 @@ require_once "../includes/head.php"
 <body>
 
     <header>
-        <p class="bienvenue">Bienvenue <span class="nom"></span> <span class="prenom"></span>.</p>
-        <p class="dateCo">Nous sommes le <span class="jourSem"></span> <span class="dateDay"></span> <span
-                class="dateMonth"></span> <span class="dateYear"></span>.</p>
-        <p class="heureCo">Vous vous êtes connecté à <span class="heure"></span>h<span class="minute"></span>.</p>
+        <p class="bienvenue">Bienvenue
+            <span class="nom">
+                <?php echo $_SESSION['nom'] ?>
+            </span>
+            <span class="prenom">
+                <?php echo $_SESSION['prenom'] ?>
+            </span>.
+        </p>
+        <p class="dateCo">Nous sommes le <span>
+                <?php echo $_SESSION['date'] ?>
+            </span>.</p>
+        <p class="heureCo">Vous vous êtes connecté à
+            <span class="heure">
+                <?php echo $_SESSION['heure'] ?>
+            </span>.
+        </p>
+        <form method="post" class="compte">
+            <button type="submit" name="account" class="account">
+                <?php
+                echo "Votre compte";
+                if (isset($_POST['account'])) {
+                    header('Location:../views/account.php');
+                }
+                ?>
+            </button>
+            <button type="submit" name="dc" class="dc">
+                <?php
+                echo "Déconnexion";
+                if (isset($_POST['dc'])) {
+                    session_destroy();
+                    header('Location:../index.php');
+                }
+                ?>
+            </button>
+        </form>
     </header>
 
     <div class="navBar">
@@ -26,24 +60,37 @@ require_once "../includes/head.php"
             <a href="installation.php">Cours et exercices</a>
         </nav>
     </div>
-    
+
     <table class="table">
         <tr>
-            <th>#</th>
             <th>Sujet</th>
-            <th>Dernier commentaire</th>
-            <th>Auteur</th>
+            <th>Premier message</th>
+            <th>Date de création</th>
         </tr>
+        <?php
+        require_once '../controllers/sujetcontroller.php';
+        //boucle foreach pour afficher chaque ligne de la requête
+        foreach ($lignes as $ligne) {
+            echo '<tr>
+                <td><a href="sujet.php?id=' . $ligne['id_sujet'] . '">' . $ligne['nom_sujet'] . '</a></td>
+                <td>' . $ligne['message_sujet'] . '</td>
+                <td>' . $ligne['date_sujet'] . '</td>
+            </tr>';
+        }
+        ?>
     </table>
 
-    <form>
+    <form action="../includes/createSujet.php" method="POST" class="formSujet">
         <label for="titre">Titre de votre sujet :</label>
-        <input id="titre" type="text">
+        <input id="titre" type="text" name="titre">
+
+
+
 
         <label for="message">Contenu de votre message :</label>
         <textarea name="message" id="message"></textarea>
 
-        <input class="btn" type="button" value="Envoyer">
+        <button type="submit">Envoyer</button>
     </form>
 
     <script src="../js/categorie.js"></script>

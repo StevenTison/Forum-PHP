@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Requête SQL pour récupérer le nom, prénom et email depuis la table utilisateur
-        $sql = "SELECT nom_personne, prenom_personne, email FROM utilisateur WHERE email = :emailLog";
+        $sql = "SELECT nom_personne, prenom_personne, email, id_utilisateur FROM utilisateur WHERE email = :emailLog";
 
         // Préparation de la requête
         $stmt = $con->prepare($sql);
@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['heure'] = $dateCo->format('H:i');
                 $_SESSION['date'] = $dateCo->format('d-m-Y');
+                $_SESSION['idUser'] = $row['id_utilisateur'];
             } else {
                 // Mot de passe incorrect
                 echo "Mot de passe incorrect. Veuillez réessayer.";

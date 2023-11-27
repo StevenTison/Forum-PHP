@@ -31,6 +31,43 @@ header p {
     line-height: 1.15em;
 }
 
+.compte {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.account {
+    margin: 2px;
+    border-radius: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: #3276B1;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+}
+
+.account:hover {
+    text-decoration: underline;
+}
+
+.dc {
+    margin: 2px;
+    border-radius: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background-color: #3276B1;
+    border: none;
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+.dc:hover {
+    color: red;
+}
+
 .navBar {
     opacity: 0.9;
     display: flex;
@@ -109,7 +146,7 @@ a {
     color: #fff;
 }
 
-form {
+.formSujet {
     width: 50vw;
     display: flex;
     flex-direction: column;

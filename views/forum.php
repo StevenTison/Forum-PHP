@@ -30,7 +30,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
                 <?php echo $_SESSION['heure'] ?>
             </span>.
         </p>
-        <form method="post">
+        <form method="post" class="compte">
             <button type="submit" name="account" class="account">
                 <?php
                 echo "Votre compte";
